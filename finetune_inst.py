@@ -8,9 +8,8 @@ import os
 
 huggingface_dataset_name = "nickrosh/Evol-Instruct-Code-80k-v1"
 # 90% of the dataset is used for training, 10% for evaluation
-train_dataset = load_dataset(huggingface_dataset_name, split="train[:90%]")
-eval_dataset = load_dataset(huggingface_dataset_name, split="train[90%:]")
-print(train_dataset, eval_dataset)
+train_dataset = load_dataset(huggingface_dataset_name, split="train")
+print(train_dataset)
 
 model_name = 'mistralai/Mistral-7B-Instruct-v0.1'
 
@@ -23,9 +22,6 @@ bnb_config = BitsAndBytesConfig(
 model = AutoModelForCausalLM.from_pretrained(
     model_name, quantization_config=bnb_config)
 
-# tokenizer = AutoTokenizer.from_pretrained(
-#     "mistralai/Mistral-7B-Instruct-v0.1", padding_side="left", add_eos_token=True)
-# tokenizer.pad_token = tokenizer.eos_token
 tokenizer = AutoTokenizer.from_pretrained(
     model_name,
     padding_side="left",

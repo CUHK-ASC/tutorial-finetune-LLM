@@ -1,9 +1,9 @@
 [project]
-name = ""
-version = ""
-description = ""
+name = "tutorial-finetune-llm"
+version = "1.0"
+description = "A tutorial on finetuning and inferencing LLM using huggingface libraries."
 authors = [
-    {name = "hei.chtai", email = "nooobkevin@gmail.com"},
+    {name = "hei.chtai", email = "hei.chtai@flyingcoffee.ai"},
 ]
 dependencies = [
     "torch>=2.1.2",
